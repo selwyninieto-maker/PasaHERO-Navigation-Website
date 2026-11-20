@@ -1,10 +1,5 @@
-/* =========================================================
-   PASAHERO | MAIN WEBSITE STYLESHEET
-   Developer: Member 4 - CSS Developer
-   Works with Allen's current index.html.
-   ========================================================= */
 
-/* 1. DESIGN SYSTEM */
+
 :root {
     --navy: #102d46;
     --navy-2: #183f5d;
@@ -83,8 +78,7 @@ body > h1::after {
     content: "";
 }
 
-/* 4. STICKY NAVIGATION
-   Matches Allen's existing <p title="Menu"> element. */
+
 p[title="Menu"] {
     position: sticky;
     top: 0;
@@ -311,9 +305,7 @@ body > hr {
     border-top: 1px solid var(--border);
 }
 
-/* 11. OPTIONAL REUSABLE COMPONENTS
-   Use these class names if the team adds matching HTML elements.
-   Example: <div class="fare-card">...</div> */
+
 
 .card,
 .fare-card,
