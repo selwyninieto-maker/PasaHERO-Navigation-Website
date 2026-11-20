@@ -1,0 +1,604 @@
+/* =========================================================
+   PASAHERO | MAIN WEBSITE STYLESHEET
+   Developer: Member 4 - CSS Developer
+   Works with Allen's current index.html.
+   ========================================================= */
+
+/* 1. DESIGN SYSTEM */
+:root {
+    --navy: #102d46;
+    --navy-2: #183f5d;
+    --navy-3: #245574;
+    --yellow: #f5b335;
+    --yellow-dark: #d99113;
+    --green: #16845b;
+    --red: #c74747;
+    --orange: #bd7418;
+    --page: #f3f6fa;
+    --surface: #ffffff;
+    --surface-soft: #f8fafc;
+    --text: #243447;
+    --muted: #64748b;
+    --border: #dce4ec;
+    --shadow-sm: 0 3px 12px rgba(16, 45, 70, 0.06);
+    --shadow-md: 0 10px 28px rgba(16, 45, 70, 0.10);
+    --radius: 14px;
+    --content-width: 1120px;
+}
+
+/* 2. RESET AND GLOBAL SETTINGS */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 92px;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+
+a {
+    color: var(--navy-3);
+}
+
+a:hover {
+    color: var(--yellow-dark);
+}
+
+/* 3. BRAND HEADER */
+body > h1 {
+    position: relative;
+    margin: 0;
+    padding: 25px max(7%, calc((100% - var(--content-width)) / 2));
+    background: linear-gradient(120deg, var(--navy), var(--navy-2));
+    color: var(--surface);
+    font-size: clamp(27px, 4vw, 36px);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+body > h1::after {
+    display: block;
+    width: 48px;
+    height: 4px;
+    margin-top: 7px;
+    border-radius: 10px;
+    background: var(--yellow);
+    content: "";
+}
+
+/* 4. STICKY NAVIGATION
+   Matches Allen's existing <p title="Menu"> element. */
+p[title="Menu"] {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 0;
+    padding: 11px 4%;
+    background: rgba(24, 63, 93, 0.97);
+    color: rgba(255, 255, 255, 0.35);
+    box-shadow: 0 5px 16px rgba(16, 45, 70, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+p[title="Menu"] a {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: var(--surface);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 180ms ease,
+                color 180ms ease,
+                transform 180ms ease;
+}
+
+p[title="Menu"] a:hover {
+    transform: translateY(-1px);
+    background: var(--yellow);
+    color: var(--navy);
+}
+
+/* 5. CONTENT WIDTH AND SECTION HEADINGS */
+body > h2,
+body > h3,
+body > p,
+body > ul,
+body > ol {
+    width: min(100% - 40px, var(--content-width));
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body > h2[id] {
+    position: relative;
+    margin-top: 38px;
+    margin-bottom: 12px;
+    padding: 11px 16px 11px 20px;
+    border-left: 5px solid var(--yellow);
+    border-radius: 0 10px 10px 0;
+    background: var(--surface);
+    color: var(--navy);
+    font-size: clamp(21px, 3vw, 26px);
+    line-height: 1.35;
+    scroll-margin-top: 90px;
+}
+
+body > h3 {
+    margin-top: 22px;
+    margin-bottom: 8px;
+    color: var(--navy-2);
+    font-size: 18px;
+}
+
+body > p {
+    margin-top: 9px;
+    margin-bottom: 15px;
+    color: var(--muted);
+}
+
+body > p a {
+    display: inline-block;
+    color: var(--navy);
+    font-weight: 700;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+/* Home intro copy */
+#home + p {
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    color: var(--text);
+    font-size: 17px;
+}
+
+/* 6. GOOGLE MAP */
+body > iframe {
+    display: block;
+    width: min(100% - 40px, var(--content-width));
+    height: clamp(280px, 42vw, 430px);
+    margin: 20px auto;
+    border: 0;
+    border-radius: var(--radius);
+    background: #e5edf4;
+    box-shadow: var(--shadow-md);
+}
+
+/* 7. TABLE DESIGN
+   Applies to the rides, landmarks, and routes tables. */
+body > table {
+    display: table;
+    width: min(100% - 40px, var(--content-width));
+    margin: 16px auto 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+body > table th,
+body > table td {
+    padding: 14px 17px;
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+body > table th {
+    background: var(--navy);
+    color: var(--surface);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.35px;
+    white-space: nowrap;
+}
+
+body > table td {
+    color: var(--text);
+    font-size: 14px;
+}
+
+body > table tr:last-child td {
+    border-bottom: 0;
+}
+
+body > table tr:not(:first-child) {
+    transition: background-color 160ms ease;
+}
+
+body > table tr:not(:first-child):hover {
+    background: #fff8e9;
+}
+
+/* Highlight fare column in the ride table */
+#rides + table td:last-child {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* 8. LISTS: FAVORITES AND RECOMMENDATIONS */
+body > ul,
+body > ol {
+    padding: 12px 18px 12px 42px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+body > ul li,
+body > ol li {
+    margin: 7px 0;
+    padding-left: 5px;
+}
+
+body > ul li::marker,
+body > ol li::marker {
+    color: var(--green);
+    font-weight: 700;
+}
+
+body > ol a {
+    color: var(--navy-3);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+body > ol a:hover {
+    color: var(--yellow-dark);
+    text-decoration: underline;
+}
+
+/* 9. TRAFFIC ALERTS
+   Adds distinct visual treatment to each existing alert. */
+#alerts ~ ul {
+    padding-left: 42px;
+}
+
+#alerts ~ ul li {
+    padding: 10px 12px;
+    border-left: 4px solid var(--yellow);
+    border-radius: 0 8px 8px 0;
+    background: var(--surface-soft);
+}
+
+#alerts ~ ul li:nth-child(2) {
+    border-left-color: var(--red);
+}
+
+#alerts ~ ul li:nth-child(3) {
+    border-left-color: var(--green);
+}
+
+strong {
+    color: var(--navy);
+}
+
+/* 10. SECTION DIVIDERS */
+body > hr {
+    width: min(100% - 40px, var(--content-width));
+    margin: 34px auto;
+    border: 0;
+    border-top: 1px solid var(--border);
+}
+
+/* 11. OPTIONAL REUSABLE COMPONENTS
+   Use these class names if the team adds matching HTML elements.
+   Example: <div class="fare-card">...</div> */
+
+.card,
+.fare-card,
+.destination-card,
+.route-card,
+.tracking-card,
+.profile-card,
+.contact-card,
+.alert-card {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.card:hover,
+.fare-card:hover,
+.destination-card:hover,
+.route-card:hover,
+.tracking-card:hover,
+.profile-card:hover,
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(220px, 1fr) );
+    gap: 18px;
+    width: min(100% - 40px, var(--content-width));
+    margin: 18px auto;
+}
+
+.fare-card .fare-price {
+    color: var(--green);
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.destination-card h3,
+.route-card h3,
+.fare-card h3 {
+    margin-top: 0;
+    color: var(--navy);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #e7f5ee;
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.status-badge.warning {
+    background: #fff4df;
+    color: #98600b;
+}
+
+.status-badge.danger {
+    background: #fdecec;
+    color: var(--red);
+}
+
+/* 12. BUTTONS AND FORM ELEMENTS
+   Ready for the team's future search and contact forms. */
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button,
+.button {
+    display: inline-block;
+    padding: 11px 18px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--yellow);
+    color: var(--navy);
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 160ms ease,
+                background-color 160ms ease,
+                box-shadow 160ms ease;
+}
+
+button:hover,
+.button:hover {
+    transform: translateY(-2px);
+    background: #ffc34d;
+    box-shadow: 0 5px 14px rgba(245, 179, 53, 0.25);
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--navy-3);
+    outline: 3px solid rgba(36, 85, 116, 0.13);
+}
+
+.contact-form {
+    display: grid;
+    gap: 14px;
+    width: min(100% - 40px, 650px);
+    margin: 18px auto;
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 13. FOOTER */
+footer {
+    margin-top: 48px;
+    padding: 26px 20px;
+    background: var(--navy);
+    color: var(--surface);
+    text-align: center;
+}
+
+footer a {
+    color: var(--yellow);
+}
+
+/* 14. SUBTLE ENTRANCE ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body > h2[id],
+body > table,
+body > iframe {
+    animation: fadeUp 500ms ease both;
+}
+
+/* 15. ACCESSIBILITY */
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible {
+    outline: 3px solid var(--yellow);
+    outline-offset: 3px;
+}
+
+::selection {
+    background: var(--yellow);
+    color: var(--navy);
+}
+
+/* 16. TABLET AND MOBILE RESPONSIVENESS */
+@media (max-width: 760px) {
+    body > h1 {
+        padding: 20px 22px;
+        text-align: center;
+    }
+
+    body > h1::after {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    p[title="Menu"] {
+        position: relative;
+        gap: 4px;
+        padding: 9px 8px;
+    }
+
+    p[title="Menu"] a {
+        padding: 7px 9px;
+        font-size: 12px;
+    }
+
+    body > h2,
+    body > h3,
+    body > p,
+    body > ul,
+    body > ol {
+        width: calc(100% - 28px);
+    }
+
+    body > h2[id] {
+        margin-top: 27px;
+        padding: 10px 12px;
+        font-size: 21px;
+    }
+
+    body > iframe {
+        width: calc(100% - 28px);
+        height: 300px;
+    }
+
+    body > table {
+        display: block;
+        width: calc(100% - 28px);
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body > table th,
+    body > table td {
+        padding: 11px 13px;
+    }
+
+    body > ul,
+    body > ol {
+        padding-left: 36px;
+    }
+
+    body > hr {
+        width: calc(100% - 28px);
+        margin: 26px auto;
+    }
+
+    .section-grid {
+        grid-template-columns: 1fr;
+        width: calc(100% - 28px);
+    }
+
+    .contact-form {
+        width: calc(100% - 28px);
+    }
+}
+
+/* Small phones */
+@media (max-width: 420px) {
+    body {
+        font-size: 15px;
+    }
+
+    p[title="Menu"] a {
+        padding: 6px 7px;
+        font-size: 11px;
+    }
+
+    body > iframe {
+        height: 250px;
+    }
+
+    body > table th,
+    body > table td {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
+
+/* Respect users who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
